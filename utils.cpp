@@ -55,7 +55,7 @@ void getProductsW(const string& line, warehouses& wareh, const parameters& param
         products prod;
         prod.type = i;
         prod.weight = param.productTypesWeight[i];
-        wareh.productsStored[i] = prod;
+        wareh.productsStored.push_back(prod);
     }
 }
 

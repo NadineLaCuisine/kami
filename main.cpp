@@ -30,11 +30,19 @@ int main(int argc, char ** argv){
 		warehouses wareh;
 		int pos(stoi(param.nbWarehouses));
 		//~ cout << param.nbWarehouses;
-		uint posi(0);
-		while (posi < posi < 3+pos){
+		int posi(4);
+		//~ cout << 4+pos << endl;
+		//~ cout << linesVec[4] << endl;
+		//~ cout << "size" << linesVec.size() << endl;
+		while (posi < 4+pos){
+			//~ cout << "** " << posi << endl;
+			//~ cout << "****" << linesVec[posi];
 			getLocationW(linesVec[posi], wareh);
+			getProductsW(linesVec[posi+1], wareh, param);
 			++posi;
-			getProductsW(linesVec[posi], wareh, param);
+		}
+		while(posi < linesVec.size()){
+			
 			++posi;
 		}
 	}
