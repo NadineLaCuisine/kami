@@ -19,9 +19,10 @@ EXEC=kamiHashKode
 
 all: $(EXEC)
 
-kamiHashKode:   main.o  
+kamiHashKode:   utils.o	main.o  
 	$(CC) -o $@ $^ $(LDFLAGS)
-
+utils.o: utils.cpp
+	$(CC) -o $@ -c $< $(CFLAGS)
 main.o: main.cpp  
 	$(CC) -o $@ -c $< $(CFLAGS)
 
