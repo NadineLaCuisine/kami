@@ -1,13 +1,13 @@
 using namespace std;
 
 struct parameters{
-    string rows;
-    string columns;
-    string drones;
-    string turns;
-    string maxPayload;
-    string nbWarehouses;
-    string nbProductTypes;
+    int rows;
+    int columns;
+    int drones;
+    int turns;
+    int maxPayload;
+    int nbWarehouses;
+    int nbProductTypes;
     vector<int> productTypesWeight;
 };
 
@@ -19,6 +19,7 @@ struct place{
 struct products{
 	int type;
 	int weight;
+	int number;
 };
 
 struct warehouses{
@@ -28,7 +29,6 @@ struct warehouses{
 
 struct orders{
 	place location;
-	//~ uint nbItems;
 	vector<products> productsList;
 };
 

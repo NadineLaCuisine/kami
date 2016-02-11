@@ -24,11 +24,11 @@ void split(const string& s, char delim,vector<string>& v) {
 void getInfoFirstLine(const string& line0, parameters& param){
     vector<string> tokens;
     split(line0, ' ', tokens);
-    param.rows = tokens[0];
-    param.columns = tokens[1];
-    param.drones = tokens[2];
-    param.turns = tokens[3];
-    param.maxPayload = tokens[4];
+    param.rows = stoi(tokens[0]);
+    param.columns = stoi(tokens[1]);
+    param.drones = stoi(tokens[2]);
+    param.turns = stoi(tokens[3]);
+    param.maxPayload = stoi(tokens[4]);
 }
 
 void getInfoProductsWeigh(const string& line, parameters& param){
@@ -54,6 +54,7 @@ void getProductsW(const string& line, warehouses& wareh, const parameters& param
     for (uint i(0); i < tokens.size(); ++i){
         products prod;
         prod.type = i;
+        prod.number = stoi(tokens[i]);
         prod.weight = param.productTypesWeight[i];
         wareh.productsStored.push_back(prod);
     }
@@ -66,3 +67,14 @@ void getLocationO(const string& line, orders& order){
     order.location.x = stoi(tokens[0]);
     order.location.y = stoi(tokens[1]);
 }
+
+
+//~ void getProductsO(const string& line, orders& ord, const parameters& param){
+    //~ vector<string> tokens;
+    //~ split(line, ' ', tokens);
+    //~ for (uint i(0); i < tokens.size(); ++i){
+        //~ products prod;
+        //~ prod.type = i;
+        //~ prod.weight = param.productTypesWeight[i];
+    //~ }
+//~ }
