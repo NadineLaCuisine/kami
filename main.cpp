@@ -18,7 +18,7 @@ int main(int argc, char ** argv){
 		uint k = stoi(argv[2]);
 		ifstream readStructFile(fileName);
         ofstream out("out.fa");
-		
+		//
 		//~ for (uint i(0); i<sequencesVec.size(); ++i){
 			//~ if (not sequencesVec[i].sequence.empty()){
 				//~ out<<sequencesVec[i].sequence << endl;
