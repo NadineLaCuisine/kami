@@ -30,3 +30,12 @@ void getInfoFirstLine(const string& line0, parameters& param){
     param.turns = tokens[3];
     param.maxPayload = tokens[4];
 }
+
+void getInfoProductsWeigh(const string& line, products& prod){
+    vector<string> tokens;
+    split(line, ' ', tokens);
+    for (uint i(0); i < tokens.size(); ++i){
+        prod.productTypesWeigh.push_back(tokens[i]);
+    }
+    //~ cout << prod.productTypesWeigh[0] << " " <<prod.productTypesWeigh[1] <<  endl;
+}
