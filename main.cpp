@@ -12,7 +12,7 @@ using namespace std;
 
 int main(int argc, char ** argv){
 	if (argc < 3){
-		cout << "command line: ./kMILL reads.fasta k" << endl;
+		cout << "command line" << endl;
 	} else {
 		string fileName = argv[1];
 		uint k = stoi(argv[2]);
