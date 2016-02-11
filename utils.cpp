@@ -44,6 +44,7 @@ void getInfoProductsWeigh(const string& line, parameters& param){
 void getLocationW(const string& line, warehouses& wareh){
     vector<string> tokens;
     split(line, ' ', tokens);
+    //~ cout << tokens.size();
     wareh.location.x = stoi(tokens[0]);
     wareh.location.y = stoi(tokens[1]);
 }
@@ -60,10 +61,30 @@ void getProductsW(const string& line, warehouses& wareh, const parameters& param
     }
 }
 
+void getProductNumber(const string& line, orders& oneOrder, const parameters& param){
+	vector<string> tokens;
+	split(line, ' ', tokens);
+	//~ oneOrder.productsList(param.nbProductTypes);
+	for (uint oneProduct=0; oneProduct<param.nbProductTypes; oneProduct++){
+		oneOrder.productsList[oneProduct].type = oneProduct;
+		oneOrder.productsList[oneProduct].weight = param.productTypesWeight[oneProduct];
+		oneOrder.productsList[oneProduct].number = 0;
+	}
+	//Pour chaque élément
+	for (uint i(0); i<tokens.size(); ++i){
+
+		//on lis le type
+		int productId = stoi(tokens[i]);
+
+		//On remplie le struct correspondant
+		oneOrder.productsList[productId].number++;
+	}
+}
 
 void getLocationO(const string& line, orders& order){
     vector<string> tokens;
     split(line, ' ', tokens);
+    //~ cout << tokens.size() << endl;
     order.location.x = stoi(tokens[0]);
     order.location.y = stoi(tokens[1]);
 }

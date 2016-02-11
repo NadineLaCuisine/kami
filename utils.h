@@ -32,6 +32,10 @@ struct orders{
 	vector<products> productsList;
 };
 
+
+void getProductNumber(const string& line, orders& oneOrder, const parameters& param);
+//~ void getProductsO(const string& line, orders& ord, const parameters& param);
+
 void split(const string& s, char delim,vector<string>& v);
 void getInfoFirstLine(const string& line0,  parameters& param);
 void getInfoProductsWeigh(const string& line, parameters& param);

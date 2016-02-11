@@ -24,28 +24,28 @@ int main(int argc, char ** argv){
 		getInfoFirstLine(linesVec[0], param);
 		products product;
 		param.nbProductTypes = stoi(linesVec[1]);
-		//~ product.productTypesWeigh.push_back("");
 		getInfoProductsWeigh(linesVec[2], param);
 		param.nbWarehouses = stoi(linesVec[3]);
-		warehouses wareh;
+		vector <warehouses> vectWh;
+		//~ warehouses wareh;
 		int pos(param.nbWarehouses);
-		//~ cout << param.nbWarehouses;
 		int posi(4);
-		//~ cout << 4+pos << endl;
-		//~ cout << linesVec[4] << endl;
-		//~ cout << "size" << linesVec.size() << endl;
-		while (posi < 4+pos){
-			//~ cout << "** " << posi << endl;
-			//~ cout << "****" << linesVec[posi];
+		while (posi < 4+pos*2){
+			warehouses wareh;
 			getLocationW(linesVec[posi], wareh);
 			getProductsW(linesVec[posi+1], wareh, param);
-			++posi;
+			vectWh.push_back(wareh);
+			posi+=2;
 		}
-		orders ord;
-		//~ while(posi < linesVec.size()-2){
-			//~ getLocationO(linesVec[posi], ord);
-			//~ ++posi;
-		//~ }
+		posi -= 2; 
+		vector <orders> vectOrd;
+		while(posi < linesVec.size()-3){
+			orders ord;
+			getLocationO(linesVec[posi], ord);
+			getProductNumber(linesVec[posi+2], ord, param);
+			vectOrd.push_back(ord);
+			posi+=3;
+		}
 	}
 	return 0;
 }
