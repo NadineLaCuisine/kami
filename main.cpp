@@ -23,9 +23,20 @@ int main(int argc, char ** argv){
 		parameters param;
 		getInfoFirstLine(linesVec[0], param);
 		products product;
-		product.nbProductTypes = linesVec[1];
+		param.nbProductTypes = linesVec[1];
 		//~ product.productTypesWeigh.push_back("");
-		getInfoProductsWeigh(linesVec[2], product);
+		getInfoProductsWeigh(linesVec[2], param);
+		param.nbWarehouses = linesVec[3];
+		warehouses wareh;
+		int pos(stoi(param.nbWarehouses));
+		//~ cout << param.nbWarehouses;
+		uint posi(0);
+		while (posi < posi < 3+pos){
+			getLocationW(linesVec[posi], wareh);
+			++posi;
+			getProductsW(linesVec[posi], wareh, param);
+			++posi;
+		}
 	}
 	return 0;
 }
