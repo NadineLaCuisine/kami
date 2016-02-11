@@ -65,17 +65,22 @@ void getProductNumber(const string& line, orders& oneOrder, const parameters& pa
 	vector<string> tokens;
 	split(line, ' ', tokens);
 	//~ oneOrder.productsList(param.nbProductTypes);
+    //~ cout << param.nbProductTypes << endl;
 	for (uint oneProduct=0; oneProduct<param.nbProductTypes; oneProduct++){
-		oneOrder.productsList[oneProduct].type = oneProduct;
-		oneOrder.productsList[oneProduct].weight = param.productTypesWeight[oneProduct];
-		oneOrder.productsList[oneProduct].number = 0;
+        products prod;
+        prod.type = oneProduct;
+        prod.weight = param.productTypesWeight[oneProduct];
+        prod.number = 0;
+        oneOrder.productsList.push_back(prod);
+		//~ oneOrder.productsList.type. = oneProduct;
+		//~ oneOrder.productsList[oneProduct].weight = param.productTypesWeight[oneProduct];
+		//~ oneOrder.productsList[oneProduct].number = 0;
 	}
 	//Pour chaque élément
 	for (uint i(0); i<tokens.size(); ++i){
 
 		//on lis le type
 		int productId = stoi(tokens[i]);
-
 		//On remplie le struct correspondant
 		oneOrder.productsList[productId].number++;
 	}
