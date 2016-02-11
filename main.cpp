@@ -39,13 +39,16 @@ int main(int argc, char ** argv){
 		}
 		posi -= 2; 
 		vector <orders> vectOrd;
-		while(posi < linesVec.size()-3){
+		while(posi < linesVec.size()-2){
 			orders ord;
 			getLocationO(linesVec[posi], ord);
+			//~ cout << linesVec[p+2] << endl;
 			getProductNumber(linesVec[posi+2], ord, param);
 			vectOrd.push_back(ord);
 			posi+=3;
+			//~ cout << linesVec[posi];
 		}
+		//~ cout << linesVec[posi-3] << endl;
 	}
 	return 0;
 }
