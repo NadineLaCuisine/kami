@@ -20,3 +20,13 @@ void split(const string& s, char delim,vector<string>& v) {
          v.push_back(s.substr(i, s.length()));
     }
 }
+
+void getInfoFirstLine(const string& line0, parameters& param){
+    vector<string> tokens;
+    split(line0, ' ', tokens);
+    param.rows = tokens[0];
+    param.columns = tokens[1];
+    param.drones = tokens[2];
+    param.turns = tokens[3];
+    param.maxPayload = tokens[4];
+}
